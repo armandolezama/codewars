@@ -9,7 +9,18 @@ const countingChangeCombination = (amount, coins) => {
     }, 0)
 };
 
-const checkIndividualCoin = (amount, coin, counter, storeCases) => {};
+const multiplyArrys = (arrayToMultiply, amount) => {
+    let counter = 0;
+    const multipliedArrays = [];
+    let lastArray = [];
+    do {
+        multipliedArrays[counter] = lastArray = arrayToMultiply.map(item => item * (counter + 1));
+        counter = counter + 1;
+    } while (lastArray.filter(item => item < amount).length);
+
+    return multipliedArrays;
+};
+
 
 const countDivisibleNumbers = (numbers, amount) => {
     let counter = 0;
@@ -41,5 +52,6 @@ const navigateThroughArray = (arrayToNavigate, valueHandler) => {
 
 module.exports = {
     countDivisibleNumbers,
-    navigateThroughArray
+    navigateThroughArray,
+    multiplyArrys,
 }
